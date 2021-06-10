@@ -7,7 +7,7 @@ class DisplayEvent extends CI_Controller {
         $this->load->model('EventModel');
         $this->load->model('RegisterModel');
         if(!$this->session->userdata('userId')){
-            redirect("login");
+            redirect(base_url()."login");
         }
     }
 

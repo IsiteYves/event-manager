@@ -3,16 +3,17 @@
 class Login extends CI_Controller {
 
   public function __construct(){
-    parent::__construct();
-    $this->load->model('RegisterModel');
+      parent::__construct();
+      $this->load->model('RegisterModel');
   }
   public function index(){
-    // if($this->session->userdata("userId") != NULL){
-    //   redirect('displayEvents');
-    // } 
-    // else {
-    // }
-       $this->load->view('login');
+    if($this->session->userdata("userId") != NULL){
+      redirect(base_url().'displayEvents');
+    } 
+    else {
+      $this->load->view('login');
+    
+    }
 
   }
 
@@ -32,11 +33,11 @@ class Login extends CI_Controller {
             $this->load->view('login');  
         }
         else{
-            $userId = $row['userId'];
-            $this->session->set_userdata('userId',$userId);
-            $data['user_info'] = $this->RegisterModel->select($this->session->userdata('userId'));
-            redirect('');
-        }
+            foreach($row as $user_array){
+              $this->session->set_userdata('userId',$user_array['userId']);
+              redirect(''.base_url());
+            }
+          }
     }
     else {
         $this->index();
