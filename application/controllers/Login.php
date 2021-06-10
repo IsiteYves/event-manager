@@ -4,7 +4,7 @@ class Login extends CI_Controller {
 
   public function __construct(){
     parent::__construct();
-    $this->load->model('login_model');
+    $this->load->model('User_model');
   }
   public function index(){
     if($this->session->userdata("userId") != NULL){
@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 
   public function login_process(){
     $this->form_validation->set_rules('user_name','Username','trim|required|alpha_numeric|min_length[6]');
-    $this->form_validation->set_rules('password','password','trim|required|alpha_numeric|min_length[6]');
+    $this->form_validation->set_rules('user_password','Password','trim|required|alpha_numeric|min_length[6]');
      
     if ($this->form_validation->run() == FALSE){
       $this->session->set_flashdata('error_msg', 'Error occured,Try again.');
@@ -28,9 +28,9 @@ class Login extends CI_Controller {
      $unsafe_pass=$this->input->post('password');
      $passw0rd= str_replace(str_split('\\ \'/:*?"<>|'), '', $unsafe_pass);
      $pass=hash("SHA512",$passw0rd);
-     $query=$this->user_model->login($use1name,$pass);
+     $query=$this->User_model->login_user($use1name,$pass);
     //  echo print_r($query);
-      if($query->num_rows()>0)  {
+      if($query) {
         $row=$query->row();
         $userId = $row['userId'];
         $this->session->set_userdata($userId);
