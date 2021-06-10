@@ -49,8 +49,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card-body">
                                 <h5 class="card-title">'.$event_name.'</h5>
                                 <p class="card-text ellipsis-content">'.$event_description.'</p>
-                                <a href='.base_url() ."event/".$event_id.' class="btn btn-success read-more col-sm-12">Read More</a>
-                                <i class="fas fa-ellipsis-v"></i>
+                                <div class="read-more-option">
+                                    <a href='.base_url() ."event/".$event_id.' class="btn btn-success read-more col-sm-12">Read More</a>
+                                    <i class="fas fa-ellipsis-v"></i>
+                                </div>
                                 <p class="card-text duration text-secondary col-sm-12">'.$event_duration.'</p>
                             </div>
                         </div>

@@ -256,3 +256,48 @@ a.active {
 .user-option>a:first-child{
     border-bottom: 1px solid #ccc;
 }
+.read-more-option{
+	display: flex;
+	width:100%;
+}
+.fa-ellipsis-v{
+	margin-top: 8%;
+	margin-left: 9%;
+	cursor: pointer;
+}
+.post-option{
+    background-color: #ececec;
+    border-radius: 5px;
+    z-index: 10;
+    width: 40%;
+    height: auto;
+    box-sizing: border-box;
+    position: relative;
+    border: 1px solid #ccc;
+    top: 40vh;
+    left: 69%;
+    opacity: 0;
+    display: none;
+    transition:all .8s;
+}
+.post-option>a{
+    width: 100%;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    margin: 8% 0%;
+    padding: 3.5% 10%;
+    color: #171717;
+    font-size: 14px;
+}
+.post-option>a>i{
+    margin-right: 20px;
+    color: rgb(8, 70, 2);
+}
+#check-post{
+    display: none;
+}
+#check-post:checked ~ .post-option{
+    opacity: 1;
+    display: block;
+}
