@@ -8,6 +8,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['createEvent'] = 'RegisterEvent';
 $route['createEvent/validation'] = 'RegisterEvent/validation';
+$route['login'] = "Login";
 $route['displayEvents'] = 'DisplayEvent';
 $route['ForgotPassword'] = 'ForgotPassword';
 $route['ProvideCode'] = 'ProvideCode';
