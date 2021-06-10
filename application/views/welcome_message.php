@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </nav>
             <div class="profile-info">
                 <img src="../event_images_uploads/5e98b4cc92619ada2fb8c524ad40f1f4.jpg" alt="Profile picture" class="profilePic">
-                <h2 class="profile-name">Pacis</h2>
+                <h2 class="profile-name"><?php echo $user_info[0]['user_name']?></h2>
                 <label for="check"><i class="fas fa-user-cog"></i></label>
                 <input type="checkbox" id="check">
                 <div class="user-option">
@@ -49,8 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card-body">
                                 <h5 class="card-title">'.$event_name.'</h5>
                                 <p class="card-text ellipsis-content">'.$event_description.'</p>
-                                <a href='.base_url() ."event/".$event_id.' class="btn btn-success read-more col-sm-12">Read More</a>
-                                <i class="fas fa-ellipsis-v"></i>
+                                <div class="read-more-option">
+                                    <a href='.base_url() ."event/".$event_id.' class="btn btn-success read-more col-sm-11">Read More</a>                           
+                                    <label for="check-post"><i class="fas fa-ellipsis-v"></i></label>
+                                    <input type="checkbox" id="check-post">
+                                    <div class="post-option">
+                                        <a href="event/delete/'.$event_id.'"><i class="fas fa-trash-alt text-danger"></i>Delete</a>
+                                    </div>
+                                </div>
                                 <p class="card-text duration text-secondary col-sm-12">'.$event_duration.'</p>
                             </div>
                         </div>
