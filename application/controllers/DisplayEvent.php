@@ -8,7 +8,11 @@ class DisplayEvent extends CI_Controller {
     }
 
     function index(){
-        $data['data'] = $this->EventModel->select();
-        $this->load->view('welcome_message',$data);
+        if($this->session->userdata("userId") == NULL){
+            redirect('login');
+        } else {
+            $data['data'] = $this->EventModel->select();
+            $this->load->view('welcome_message',$data);
+        }
     }
 }

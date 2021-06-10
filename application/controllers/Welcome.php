@@ -20,6 +20,10 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		if($this->session->userdata("userId") == NULL){
+            redirect('login');
+        } else {
+			$this->load->view('welcome_message');
+		}
 	}
 }
