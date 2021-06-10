@@ -50,8 +50,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <h5 class="card-title">'.$event_name.'</h5>
                                 <p class="card-text ellipsis-content">'.$event_description.'</p>
                                 <div class="read-more-option">
-                                    <a href='.base_url() ."event/".$event_id.' class="btn btn-success read-more col-sm-12">Read More</a>
-                                    <i class="fas fa-ellipsis-v"></i>
+                                    <a href='.base_url() ."event/".$event_id.' class="btn btn-success read-more col-sm-11">Read More</a>                           
+                                    <label for="check-post"><i class="fas fa-ellipsis-v"></i></label>
+                                    <input type="checkbox" id="check-post">
+                                    <div class="post-option">
+                                        <a href="event/delete/'.$event_id.'"><i class="fas fa-trash-alt text-danger"></i>Delete</a>
+                                    </div>
                                 </div>
                                 <p class="card-text duration text-secondary col-sm-12">'.$event_duration.'</p>
                             </div>
