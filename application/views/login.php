@@ -51,7 +51,7 @@
                         <input type="submit" name="create" value="Login" class="btn btn-success create-event mt-2 col-md-5">
                     </div>
                 </form>
-				<center><a href="<?php echo base_url('reset'); ?>">Forgot password</a></center><!--for centered text-->
+				<center><a href="<?php echo base_url('forgotpassword'); ?>">Forgot password</a></center><!--for centered text-->
 				<center><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
             </div>
     </div>
