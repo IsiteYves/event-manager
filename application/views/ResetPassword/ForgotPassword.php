@@ -18,7 +18,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body class="bg-light">
-	<div class="container bg-white">
+	<div class="container bg-white reset-div">
 		<h4 class="panel-heading my-3">Forgot Password.</h4>
 		<div class="d-flex justify-content-center">
 			<p class="w-50 text-center">Let's help you get back into your account! First you need to type in your email here below to continue:</p>
@@ -39,6 +39,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 				</div>
 				<div class="form-group">
 					<input type="submit" name="continue" value="Continue" class="btn btn-success create-event mt-2 col-md-5">
+				</div>
+				<div class="text-center my-3">
+				    <a href="<?= base_url() ?>login">Back to Login</a>
 				</div>
 			</form>
 		</div>
