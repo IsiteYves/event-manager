@@ -36,7 +36,7 @@ class Login extends CI_Controller {
         $this->session->set_userdata($userId);
         redirect('');
       } else {
-        $this->session->set_flashdata('error_msg', 'The username and password are incorrect.');
+        $this->session->set_flashdata('error_msg', 'The username or password is incorrect.');
         $this->load->view('login');
       }
     }
