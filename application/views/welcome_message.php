@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 <div class="navbar-div">
         <h1 class="app-title">EVENT MANAGER</h1>
-        <?php echo $user_info;?>
+        <?php print_r($user_info);?>
         <div class="navbar-main-content">
             <nav>
                 <ul>
