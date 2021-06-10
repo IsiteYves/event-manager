@@ -44,14 +44,14 @@
                     </div>
                     <div class="form-group">
                         <label>Password</label>
-                        <input type="text" name="user_password" class="form-control" value="<?php echo set_value('user_password');?>">
+                        <input type="password" name="user_password" class="form-control" value="<?php echo set_value('user_password');?>">
                         <span class="text-danger"><?php echo form_error('user_password')?></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" name="create" value="Login" class="btn btn-success create-event mt-2 col-md-5">
                     </div>
                 </form>
-				<center><a href="<?php echo base_url('reset'); ?>">Forgot password</a></center><!--for centered text-->
+				<center><a href="<?php echo base_url('forgotpassword'); ?>">Forgot password</a></center><!--for centered text-->
 				<center><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
             </div>
     </div>

@@ -9,7 +9,13 @@ class RegisterEvent extends CI_Controller {
     }
 
     function index(){
-        $this->load->view('events-page/createEvent');
+        if($this->session->userdata("userId") == NULL){
+            redirect('login');
+        } else {
+            $data['data'] = $this->EventModel->select();
+            $this->load->view('welcome_message',$data);
+            $this->load->view('events-page/createEvent');
+        }
     }
 
     function validation(){
