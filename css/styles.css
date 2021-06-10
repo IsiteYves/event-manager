@@ -256,3 +256,7 @@ a.active {
 .user-option>a:first-child{
     border-bottom: 1px solid #ccc;
 }
+
+.email-holder {
+	margin: auto;
+}
