@@ -9,6 +9,6 @@ class DisplayEvent extends CI_Controller {
 
     function index(){
         $data['data'] = $this->EventModel->select();
-        $this->load->view('events-page/displayEvents',$data);
+        $this->load->view('welcome_message',$data);
     }
 }

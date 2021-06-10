@@ -1,20 +1,23 @@
+<?php
+	defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Login-CI Login Registration</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
-  </head>
-  <body>
-
-    <div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="login-panel panel panel-success">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please do Login here</h3>
-                </div>
-                <?php
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<?php echo base_url();?>css/styles.css">
+</head>
+<body>
+<h1 class="app-title">EVENT MANAGER</h1>
+<div class="container mt-5">
+            <h4 class="panel-heading">Login To Event Manager</h4>
+            <div class="panel-body">
+			<?php
               $success_msg= $this->session->flashdata('success_msg');
               $error_msg= $this->session->flashdata('error_msg');
 
@@ -33,30 +36,25 @@
                     <?php
                   }
                   ?>
-
-                <div class="panel-body">
-                    <form role="form" method="post" action="<?php echo base_url('user/login_user'); ?>">
-                        <fieldset>
-                            <div class="form-group"  >
-                                <input class="form-control" placeholder="Enter Username" name="user_email" type="email" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" placeholder="Enter Password" name="user_password" type="password" value="">
-                            </div>
-
-
-                                <input class="btn btn-lg btn-success btn-block" type="submit" value="login" name="login" >
-
-                        </fieldset>
-                    </form>
-                <center><b>You are not registered ?</b> <br></b><a href="<?php echo base_url('user'); ?>">Register here</a></center><!--for centered text-->
-
-                </div>
+                <form method="post" action="<?php echo base_url('Login/login_process'); ?>" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="user_name" class="form-control" value="<?php echo set_value('user_name');?>">
+                        <span class="text-danger"><?php echo form_error('user_name')?></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="text" name="user_password" class="form-control" value="<?php echo set_value('user_password');?>">
+                        <span class="text-danger"><?php echo form_error('user_password')?></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="create" value="Login" class="btn btn-success create-event mt-2 col-md-5">
+                    </div>
+                </form>
+				<center><a href="<?php echo base_url('reset'); ?>">Forgot password</a></center><!--for centered text-->
+				<center><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
             </div>
-        </div>
     </div>
-</div>
 
-
-  </body>
+</body>
 </html>
