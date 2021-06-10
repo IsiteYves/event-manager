@@ -2,30 +2,39 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Login Registration</title>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" media="screen" title="no title">
-
-
+    <title>Register User</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/1681f60826.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="<?php echo base_url();?>css/styles.css">
   </head>
   <body>
-
+  <h1 class="app-title">EVENT MANAGER</h1>
 <span style="background-color:red;">
-  <div class="container"><!-- container class is used to centered  the body of the browser with some decent width-->
-      <div class="row"><!-- row class is used for grid system in Bootstrap-->
-          <div class="col-md-4 col-md-offset-4"><!--col-md-4 is used to create the no of colums in the grid also use for medimum and large devices-->
-              <div class="login-panel panel panel-success">
-                  <div class="panel-heading">
-                      <h3 class="panel-title">Please do Registration here</h3>
-                  </div>
-                  <div class="panel-body">
+<div class="container mt-5"><!-- container class is used to centered  the body of the browser with some decent width-->
+<h4 class="panel-heading">Register To Event Manager</h4>
+<div class="panel-body">
+			<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
 
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
                   <?php
-                  $error_msg=$this->session->flashdata('error_msg');
-                  if($error_msg){
-                    echo $error_msg;
                   }
-                   ?>
+                  if($error_msg){
+                    ?>
+                    <div class="alert alert-danger">
+                      <?php echo $error_msg; ?>
+                    </div>
+                    <?php
+                  }
+                  ?>
 
                       <form role="form" method="post" action="<?php echo base_url('user/register_user'); ?>">
                           <fieldset>
@@ -52,7 +61,7 @@
 
                           </fieldset>
                       </form>
-                      <center><b>You have Already registered ?</b> <br></b><a href="<?php echo base_url('user/login_view'); ?>"> Please Login</a></center><!--for centered text-->
+                      <center><b>You have Already registered ?</b> <br></b><a href="<?php echo base_url(''); ?>"> Please Login</a></center><!--for centered text-->
                   </div>
               </div>
           </div>

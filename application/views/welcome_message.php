@@ -17,14 +17,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="container mt-5">
             <h4 class="panel-heading">Login To Event Manager</h4>
             <div class="panel-body">
-                <?php
-                   if($this->session->flashdata('message')){
-                       echo '<div class="alert alert-danger">
-                            '.$this->session->flashdata('message').'
-                       </div>';
-                   }
-                ?>
-                <form method="post" action="<?php echo base_url();?>createEvent/validation" enctype="multipart/form-data">
+			<?php
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
+                  <?php
+                  }
+                  if($error_msg){
+                    ?>
+                    <div class="alert alert-danger">
+                      <?php echo $error_msg; ?>
+                    </div>
+                    <?php
+                  }
+                  ?>
+                <form method="post" action="<?php echo base_url('user/login_user'); ?>" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Username</label>
                         <input type="text" name="user_name" class="form-control" value="<?php echo set_value('user_name');?>">
@@ -39,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input type="submit" name="create" value="Login" class="btn btn-success create-event mt-2 col-md-5">
                     </div>
                 </form>
+				<center><b>You are not registered ?</b> <br></b><a href="<?php echo base_url('user'); ?>">Register here</a></center><!--for centered text-->
             </div>
     </div>
 
