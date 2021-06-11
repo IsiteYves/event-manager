@@ -19,7 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <nav>
                 <ul>
                     <li><a href="" class="active">Events</a></li>
-                    <li><a href="#">Notifications</a></li>
+                    <li><a href="#">Places</a></li>
                 </ul>
             </nav>
             <div class="profile-info">
