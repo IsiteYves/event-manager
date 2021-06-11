@@ -11,7 +11,7 @@
 <body>
 <h1 class="app-title">EVENT MANAGER</h1>
 <div class="container">
-            <h4 class="panel-heading">Register To Event Manager</h4>
+            <h4 class="panel-heading my-3">Register To Event Manager</h4>
             <div class="panel-body">
                 <?php
                    if($this->session->flashdata('message')){
