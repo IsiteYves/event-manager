@@ -4,7 +4,7 @@ class Login extends CI_Controller {
 
   public function __construct(){
       parent::__construct();
-      $this->load->model('RegisterModel');
+      $this->load->model('UserModel');
   }
   public function index(){
     if($this->session->userdata("userId") != NULL){
@@ -27,7 +27,7 @@ class Login extends CI_Controller {
  
       $pass=hash("SHA256",$password);
       
-        $row=$this->RegisterModel->login($username,$pass);
+        $row=$this->UserModel->login($username,$pass);
         if($row== false){
             $this->session->set_flashdata('error_msg', 'The username or password is incorrect.');
             $this->load->view('login');  

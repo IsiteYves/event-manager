@@ -5,7 +5,7 @@ class DisplayEvent extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('EventModel');
-        $this->load->model('RegisterModel');
+        $this->load->model('UserModel');
         if(!$this->session->userdata('userId')){
             redirect(base_url()."login");
         }
@@ -13,7 +13,7 @@ class DisplayEvent extends CI_Controller {
 
     function index(){
         $data['data'] = $this->EventModel->select();
-        $data['user_info'] = $this->RegisterModel->select($this->session->userdata('userId'));
+        $data['user_info'] = $this->UserModel->select($this->session->userdata('userId'));
         $this->load->view('welcome_message',$data);
     }
 

@@ -6,14 +6,14 @@ class RegisterEvent extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('EventModel');
-        $this->load->model('RegisterModel');
+        $this->load->model('UserModel');
     }
 
     function index(){
         if($this->session->userdata("userId") == NULL){
             redirect('login');
         } else {
-            $data['user_info'] = $this->RegisterModel->select($this->session->userdata('userId'));
+            $data['user_info'] = $this->UserModel->select($this->session->userdata('userId'));
             $this->load->view('events-page/createEvent',$data);
         }
     }
