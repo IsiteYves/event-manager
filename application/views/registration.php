@@ -54,6 +54,7 @@
                         <input type="submit" name="create" value="Register" class="btn btn-success create-event mt-2 col-md-5">
                     </div>
                 </form>
+                <center><b>Already have an account? </b> <br></b><a href="<?php echo base_url('login'); ?>">Login here</a></center><!--for centered text-->
             </div>
     </div>
     
