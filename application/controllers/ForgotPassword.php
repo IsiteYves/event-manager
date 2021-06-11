@@ -30,14 +30,14 @@ class ForgotPassword extends CI_Controller
 					'protocol' => 'smtp',
 					'smtp_host' => 'ssl://smtp.gmail.com',
 					'smtp_port' => 465,
-					'smtp_user' => 'yvesisite@gmail.com',
-					'smtp_pass' => 'gloysyevp/c**proG7',
+					'smtp_user' => 'qwertygroup0@gmail.com',
+					'smtp_pass' => '*qwerty1.1',
 					'mailtype' => 'html',
 					'charset' => 'iso-8859-1'
 				);
 				$this->email->initialize($config);
 				$this->email->set_newline("\r\n");
-				$this->email->from('yvesisite@gmail.com');
+				$this->email->from('qwertygroup0@gmail.com');
 				$this->email->to($reset_email);
 				$this->email->subject($subject);
 				$this->email->message($message);
