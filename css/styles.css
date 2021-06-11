@@ -304,3 +304,11 @@ label[for='check-post']{
     opacity: 1;
     display: block;
 }
+
+.reset-div {
+	margin-top: 8rem;
+}
+
+.email-holder {
+	margin: auto;
+}
