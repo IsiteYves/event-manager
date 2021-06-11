@@ -4,7 +4,7 @@ class RegisterUser extends CI_Controller{
     {
         parent::__construct();
         $this->load->library('form_validation');
-        $this->load->model('RegisterModel');
+        $this->load->model('UserModel');
     }
     function index(){
         $this->load->view('registration');
@@ -28,7 +28,7 @@ class RegisterUser extends CI_Controller{
                     'password' => $encrypted
                 ); 
 
-                $id = $this->RegisterModel->insert($data);
+                $id = $this->UserModel->insert($data);
                 if($id > 0){
                     $this->session->set_userdata('userId',$id);
                     redirect("");

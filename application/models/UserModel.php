@@ -1,5 +1,5 @@
 <?php
-class RegisterModel extends CI_Model
+class UserModel extends CI_Model
 {
     function insert($data){
         $this->db->insert('users',$data);
