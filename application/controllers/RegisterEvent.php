@@ -6,15 +6,15 @@ class RegisterEvent extends CI_Controller {
         parent::__construct();
         $this->load->library('form_validation');
         $this->load->model('EventModel');
+        $this->load->model('RegisterModel');
     }
 
     function index(){
         if($this->session->userdata("userId") == NULL){
             redirect('login');
         } else {
-            $data['data'] = $this->EventModel->select();
-            $this->load->view('welcome_message',$data);
-            $this->load->view('events-page/createEvent');
+            $data['user_info'] = $this->RegisterModel->select($this->session->userdata('userId'));
+            $this->load->view('events-page/createEvent',$data);
         }
     }
 
@@ -36,16 +36,17 @@ class RegisterEvent extends CI_Controller {
                     'event_name' => $this->input->post('event_name'),
                     'event_description' => $this->input->post('event_description'),
                     'event_duration' => $this->input->post('event_duration'),
-                    'event_image' => $image_name['file_name']
+                    'event_image' => $image_name['file_name'],
+                    'created_by' => $this->session->userdata('userId')
                 ); 
                 $id = $this->EventModel->insert($data);
                 if($id > 0){
-                    redirect('displayEvents');
+                    redirect(''.base_url());
                 }       
             }
             else{
                 $this->session->set_flashdata('message',$this->upload->display_errors());
-                redirect('createEvent');
+                redirect(base_url().'createEvent');
             }
             
         }

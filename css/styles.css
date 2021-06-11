@@ -6,10 +6,9 @@
 }
 
 .card {
-	height: 300px;
+	height: 320px;
 	padding-bottom: 0 !important;
-	margin: 0 2% 0 4%;
-
+	margin: 0 2% 0 4%;	
 	padding: 0;
 }
 
@@ -30,6 +29,8 @@
 .duration {
 	font-size: 13px;
 	text-align: right;
+	white-space: nowrap;
+	margin-bottom: -1% !important;
 }
 
 .read-more {
@@ -311,4 +312,30 @@ label[for='check-post']{
 
 .email-holder {
 	margin: auto;
+}
+
+.no-events-text{
+	text-align: center;
+	font-size:36px;
+	margin-top: 10%;
+}
+
+.create-no-event-btn {
+	display: flex;
+	white-space: nowrap;
+	margin-left: 45%;
+	position: sticky;
+	top: 10px;
+	z-index: 0;
+	width: 10%;
+}
+
+.create-no-event-btn>i {
+	margin-right: 10%;
+	margin-top: 3%;
+}
+.creator {
+	font-size: 13px;
+	text-align: left;
+	white-space: nowrap;
 }

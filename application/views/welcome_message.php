@@ -34,15 +34,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
     </div>
-    <a href="<?php echo base_url();?>createEvent" class="btn btn-success mt-2 new-event-btn"><i class="fas fa-calendar-plus"></i>New Event</a>
-      <div class="row col-sm-12">
-            <?php
-                foreach ($data as $value_data){
+    <?php
+        if($data != 'You have no events yet'){
+            echo '<a href="'.base_url().'createEvent" class="btn btn-success mt-2 new-event-btn"><i class="fas fa-calendar-plus"></i>New Event</a>';
+        
+        }
+                if($data == 'You have no events yet'){
+                    echo '<h3 class="no-events-text">You Have No Events Yet</h3><br> 
+                    <a href="'.base_url().'createEvent" class="btn btn-success mt-2 create-no-event-btn"><i class="fas fa-calendar-plus"></i>New Event</a>';
+                }
+                else{
+                    echo '<div class="row col-sm-12">';
+                    foreach ($data as $value_data){
                         $event_id = $value_data['event_id'];
                         $event_name = $value_data['event_name'];
                         $event_description = $value_data['event_description'];
                         $event_duration = $value_data['event_duration'];
                         $event_image = "../event_images_uploads/".$value_data['event_image'];
+                        $creator = $value_data['user_name'];
                         echo '
                         <div class="card mt-2 mb-1 col-sm-1" style="width: 16rem;">
                             <img class="card-img-top" src='.$event_image.' alt='.$event_name.'>
@@ -57,12 +66,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                         <a href="event/delete/'.$event_id.'"><i class="fas fa-trash-alt text-danger"></i>Delete</a>
                                     </div>
                                 </div>
+                                <div class="row">
+                                </div>
                                 <p class="card-text duration text-secondary col-sm-12">'.$event_duration.'</p>
+                                <p class="card-text creator text-secondary col-sm-12">Created By '.$creator.'</p>
                             </div>
                         </div>
                         ';
                     
                     }
+                }
+                
             ?>
       </div>
 </body>

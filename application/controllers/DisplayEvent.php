@@ -16,4 +16,15 @@ class DisplayEvent extends CI_Controller {
         $data['user_info'] = $this->RegisterModel->select($this->session->userdata('userId'));
         $this->load->view('welcome_message',$data);
     }
+
+    function Logout(){
+        $data = $this->session->all_userdata();
+
+        foreach($data as $row=>$rows_value){
+            $this->session->unset_userdata($row);
+        }
+        session_unset();
+        session_destroy();
+        redirect(base_url()."login");
+    }
 }

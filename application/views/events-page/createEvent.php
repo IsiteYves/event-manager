@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create an event</title>
+    <title>Display events</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -21,13 +21,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="navbar-main-content">
             <nav>
                 <ul>
-                    <li><a href="displayEvents" class="active">Events</a></li>
+                    <li><a href="" class="active">Events</a></li>
                     <li><a href="#">Notifications</a></li>
                 </ul>
             </nav>
             <div class="profile-info">
                 <img src="../event_images_uploads/5e98b4cc92619ada2fb8c524ad40f1f4.jpg" alt="Profile picture" class="profilePic">
-                <h2 class="profile-name">Pacis</h2>
+                <h2 class="profile-name"><?php echo $user_info[0]['user_name']?></h2>
                 <label for="check"><i class="fas fa-user-cog"></i></label>
                 <input type="checkbox" id="check">
                 <div class="user-option">

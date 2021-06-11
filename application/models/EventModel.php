@@ -9,7 +9,12 @@ class EventModel extends CI_Model
 
 	function select()
 	{
-		$query = $this->db->get('events')->result_array();
+		$this->db->select('event_id, event_name, event_description, event_duration, event_image, user_name');
+		$this->db->from('events');
+        $this->db->join('users', 'users.userId = events.created_by');
+
+		$query = $this->db->get()->result_array();
+		
 		if (count($query) > 0) {
 			return $query;
 		} else {
