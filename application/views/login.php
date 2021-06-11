@@ -48,7 +48,7 @@
         </div>
       </form>
       <center><a href="<?php echo base_url('forgotpassword'); ?>">Forgot password</a></center><!--for centered text-->
-      <center div="my-3"><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
+      <center class="my-3"><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
     </div>
   </div>
 
