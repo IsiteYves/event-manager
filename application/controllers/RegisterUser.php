@@ -7,7 +7,7 @@ class RegisterUser extends CI_Controller{
         $this->load->model('UserModel');
     }
     function index(){
-        $this->load->view('registration');
+        $this->load->view('registerUser');
     }
 
     function validation(){
