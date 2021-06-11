@@ -11,8 +11,10 @@
 </head>
 <body>
   <h1 class="app-title">EVENT MANAGER</h1>
-  <div class="container mt-5 pt-3">
-    <h4 class="panel-heading my-3">Login To Event Manager</h4>
+  <div class="container mt-5">
+    <div class="my-3">
+        <h4 class="panel-heading">Login To Event Manager</h4>
+    </div>
     <div class="panel-body">
       <?php
         $success_msg= $this->session->flashdata('success_msg');
