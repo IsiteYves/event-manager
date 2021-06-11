@@ -11,7 +11,7 @@
 </head>
 <body>
   <h1 class="app-title">EVENT MANAGER</h1>
-  <div class="container mt-5">
+  <div class="container mt-5 pt-3">
     <h4 class="panel-heading my-3">Login To Event Manager</h4>
     <div class="panel-body">
       <?php
