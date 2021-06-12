@@ -23,6 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul>
                     <li><a href="" class="active">Events</a></li>
                     <li><a href="#">Places</a></li>
+                    <li><a href="<?php echo base_url();?>users">Users</a></li>
                 </ul>
             </nav>
             <div class="profile-info">

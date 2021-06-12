@@ -16,3 +16,7 @@ $route['ProvideCode'] = 'ProvideCode';
 $route['ResetPassword'] = 'ResetPassword';
 $route['register'] = 'RegisterUser';
 $route['register/validation'] = "RegisterUser/validation";
+$route['users/pdfExport'] = 'DisplayUsers/pdfExport';
+$route['users/(:any)']  = 'DisplayUsers/index/1';
+$route['users'] = 'DisplayUsers';
+
