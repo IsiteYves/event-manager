@@ -11,7 +11,7 @@
 <body>
 <h1 class="app-title">EVENT MANAGER</h1>
 <div class="container">
-            <h4 class="panel-heading">Register To Event Manager</h4>
+            <h4 class="panel-heading my-3">Register To Event Manager</h4>
             <div class="panel-body">
                 <?php
                    if($this->session->flashdata('message')){
@@ -50,7 +50,7 @@
                         <input type="submit" name="create" value="Register" class="btn btn-success create-event mt-2 col-md-5">
                     </div>
                 </form>
-                <center><b>Already have an account? </b> <br></b><a href="<?php echo base_url('login'); ?>">Login here</a></center><!--for centered text-->
+                <center class="my-3"><b>Already have an account? </b> <br></b><a href="<?php echo base_url('login'); ?>">Login here</a></center><!--for centered text-->
             </div>
     </div>
     

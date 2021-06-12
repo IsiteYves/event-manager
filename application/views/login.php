@@ -12,7 +12,7 @@
 <body>
   <h1 class="app-title">EVENT MANAGER</h1>
   <div class="container mt-5">
-    <h4 class="panel-heading">Login To Event Manager</h4>
+    <h4 class="panel-heading my-3">Login To Event Manager</h4>
     <div class="panel-body">
       <?php
         $success_msg= $this->session->flashdata('success_msg');
@@ -48,7 +48,7 @@
         </div>
       </form>
       <center><a href="<?php echo base_url('forgotpassword'); ?>">Forgot password</a></center><!--for centered text-->
-      <center><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
+      <center class="my-3"><b>Do not have an account? </b> <br></b><a href="<?php echo base_url('register'); ?>">Register here</a></center><!--for centered text-->
     </div>
   </div>
 
