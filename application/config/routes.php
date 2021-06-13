@@ -17,6 +17,7 @@ $route['ResetPassword'] = 'ResetPassword';
 $route['register'] = 'RegisterUser';
 $route['register/validation'] = "RegisterUser/validation";
 $route['users/pdfExport'] = 'DisplayUsers/pdfExport';
+$route['users/delete/(:any)'] = "DisplayUsers/delete/1";
 $route['users/(:any)']  = 'DisplayUsers/index/1';
 $route['users'] = 'DisplayUsers';
 

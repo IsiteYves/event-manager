@@ -53,12 +53,17 @@ class UserModel extends CI_Model
       $query=$this->db->get();
 
       if($query->num_rows() > 0){
-        echo $query->result_array();
+        return $query->result_array();
       }  
     }
 
     function getTotalUsers(){
       return $this->db->count_all('users');
+    }
+
+    function deleteUser($id){
+        $this->db->where('userId',$id);
+        $this->db->delete('users');
     }
     
 }

@@ -67,22 +67,37 @@ class DisplayUsers extends CI_Controller{
         $pdf = new FPDF();
         $pdf->AddPage();
         $pdf->SetFont('Arial','B',12);
-        $pdf->Cell(30,10,'User Id',1,0);
+        $pdf->Cell(15,10,'UserId',1,0);
         $pdf->Cell(25,10,'Firstname',1,0);
         $pdf->Cell(25,10,'Lastname',1,0);
         $pdf->Cell(70,10,'Email',1,0);
         $pdf->Cell(30,10,'Username',1,0);
+        $pdf->Cell(30,10,'Events',1,0);
         $pdf->Ln();
         $data = $this->UserModel->fetchUsers();
         $pdf->SetFont('Arial','',12);
         foreach($data as $user){
-            $pdf->Cell(30,10,$user['userId'],1,0);
+            $pdf->Cell(15,10,$user['userId'],1,0);
             $pdf->Cell(25,10,$user['first_name'],1,0);
             $pdf->Cell(25,10,$user['last_name'],1,0);
             $pdf->Cell(70,10,$user['email'],1,0);
             $pdf->Cell(30,10,$user['user_name'],1,0);
+            $pdf->Cell(30,10,$user['events']." events",1,0);
             $pdf->Ln();
         }
         $pdf->Output('Users in the database','I');
+    }
+
+    function delete($param){
+        $userId = $this->uri->segment(3);
+        $this->UserModel->deleteUser($userId);
+        if($userId == $this->session->userdata('userId')){
+            session_unset();
+            session_destroy();
+            redirect(base_url()."login");
+        }
+        else{
+            redirect(base_url()."users");
+        }
     }
 }
