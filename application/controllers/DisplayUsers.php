@@ -100,4 +100,12 @@ class DisplayUsers extends CI_Controller{
             redirect(base_url()."users");
         }
     }
+
+    function userProfile(){
+        $userId = $this->session->userdata('userId');
+        $data['user']=$this->UserModel->userProfile($userId);
+        $data['user_info'] = $this->UserModel->select($this->session->userdata('userId'));
+        $this->load->view('users-page/profileManagement',$data);
+    }
+    
 }

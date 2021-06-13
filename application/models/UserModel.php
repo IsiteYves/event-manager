@@ -65,5 +65,17 @@ class UserModel extends CI_Model
         $this->db->where('userId',$id);
         $this->db->delete('users');
     }
+
+    function userProfile($id){
+       $this->db->where('userId',$id);
+       $query = $this->db->get('users');
+       if($query->num_rows() > 0){
+          return $query->result_array();
+       }
+    }
     
+    function update($id,$data){
+      $this->db->where('userId',$id);
+      $this->db->update('users',$data);
+    }
 }
