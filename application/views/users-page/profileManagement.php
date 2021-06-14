@@ -31,7 +31,7 @@
                         <input type="text" name="last_name" class="form-control" value="<?php echo $user[0]['last_name']?>">
                         <span class="text-danger"><?php echo form_error('last_name')?></span>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row d-flex justify-content-center">
                         <input type="submit" name="create" value="Update Profile" class="btn btn-success mt-2 col-sm-5">
                         <input type="submit" name="create" value="Delete Profile" class="btn btn-danger  mt-2 col-sm-5 ml-5">
                     </div>
@@ -41,3 +41,4 @@
     
 </body>
 </html>
+

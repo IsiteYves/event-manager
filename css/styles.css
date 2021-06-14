@@ -225,6 +225,9 @@ a.active {
     opacity: 1;
     display: block;
 }
+.user_role p {
+	margin-top: -0.6rem;
+}
 .user-option{
     background-color: #ececec;
     border-radius: 5px;

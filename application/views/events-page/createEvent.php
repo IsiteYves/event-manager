@@ -28,7 +28,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </nav>
             <div class="profile-info">
                 <img src="../event_images_uploads/<?php echo $user_info[0]['profilePicture']?>"  alt="Profile picture" class="profilePic">
-                <h2 class="profile-name"><?php echo $user_info[0]['user_name']?></h2>
+                <div class="user_role">
+				    <h2 class="profile-name"><?php echo $user_info[0]['user_name']?></h2>
+					<p><?= $this->session->userdata('role') ?></p>
+				</div>
                 <label for="check"><i class="fas fa-user-cog"></i></label>
                 <input type="checkbox" id="check">
                 <div class="user-option">
