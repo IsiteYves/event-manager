@@ -59,6 +59,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <input type="text" name="place_description" class="form-control" value="<?php echo set_value('place_description');?>">
                         <span class="text-danger"><?php echo form_error('place_description')?></span>
                     </div>
+                    <div class="form-group">
+                        <label>Place location</label>
+                        <input type="text" name="place_location" class="form-control" value="<?php echo set_value('place_location');?>">
+                        <span class="text-danger"><?php echo form_error('place_location')?></span>
+                    </div>
                     <label>Place Image</label>
                     <div class="custom-file mb-3">
                         <input type="file" class="custom-file-input" id="customFile" name="place_image">

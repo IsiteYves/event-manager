@@ -9,7 +9,7 @@ class PlaceModel extends CI_Model
 
 	function select()
 	{
-		$this->db->select('place_id, place_name, place_description, place_image, user_name');
+		$this->db->select('place_id, place_name, place_description, place_image, location, user_name');
 		$this->db->from('places');
         $this->db->join('users', 'users.userId = places.created_by');
 

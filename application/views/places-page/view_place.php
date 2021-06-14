@@ -15,5 +15,6 @@
         <h1><?php echo $data[0]['place_name']?></h1>
     </div>
     <p><?php echo $data[0]['place_description']?></p>
+    <p><?php echo $data[0]['location']?></p>
 </body>
 </html>
