@@ -18,7 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="navbar-main-content">
             <nav>
                 <ul>
-                    <li><a href="">Events</a></li>
+                    <li><a href="<?php echo base_url(); ?>">Events</a></li>
                     <li><a href="<?php echo base_url();?>places" class="active">Places</a></li>
                     <li><a href="<?php echo base_url();?>users">Users</a></li>
                 </ul>
@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         $place_id = $value_data['place_id'];
                         $place_name = $value_data['place_name'];
                         $place_description = $value_data['place_description'];
-                        $place_duration = $value_data['place_duration'];
                         $place_image = "../place_images_uploads/".$value_data['place_image'];
                         $creator = $value_data['user_name'];
                         echo '
@@ -69,7 +68,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="row">
                                 </div>
-                                <p class="card-text duration text-secondary col-sm-12">'.$place_duration.'</p>
                                 <p class="card-text creator text-secondary col-sm-12">Created By '.$creator.'</p>
                             </div>
                         </div>

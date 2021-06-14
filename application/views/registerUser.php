@@ -49,16 +49,26 @@
 					<span class="text-danger"><?php echo form_error('user_name') ?></span>
 				</div>
 				<div class="form-group">
-					<label for="district">Your role:</label>
+					<label for="district">District</label>
 					<select class="form-control" id="district" name="district" required>
 						<option value="">Choose district</option>
+						<?php
+						foreach($districts as $district) {
+							echo "<option value=".$district['districtId'].">".$district['districtName']."</option>";
+						}
+						?>
 					</select>
 					<span class="text-danger"><?php echo form_error('user_role') ?></span>
 				</div>
 				<div class="form-group">
-					<label for="sector">Your role:</label>
+					<label for="sector">Sector</label>
 					<select class="form-control" id="sector" name="sector" required>
 						<option value="">Choose sector</option>
+						<?php
+						foreach($sectors as $sector) {
+							echo "<option value=".$sector['districtId'].">".$sector['districtName']."</option>";
+						}
+						?>
 					</select>
 					<span class="text-danger"><?php echo form_error('user_role') ?></span>
 				</div>

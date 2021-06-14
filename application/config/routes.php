@@ -26,7 +26,6 @@ $route['update/validation'] = "UpdateUser/validation";
 $route['places'] = 'DisplayPlace';
 $route['places/new'] = 'RegisterPlace';
 $route['places/new/validation'] = 'RegisterPlace/validation';
-
+$route['place'] = 'DisplayPlace/place';
 
 $route['event'] = 'DisplayEvent/event';
-
