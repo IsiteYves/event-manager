@@ -34,7 +34,6 @@ class RegisterPlace extends CI_Controller {
                 $data = array(
                     'place_name' => $this->input->post('place_name'),
                     'place_description' => $this->input->post('place_description'),
-                    'place_duration' => $this->input->post('place_duration'),
                     'place_image' => $image_name['file_name'],
                     'created_by' => $this->session->userdata('userId')
                 ); 
