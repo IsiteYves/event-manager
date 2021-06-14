@@ -8,12 +8,35 @@ class RegisterUser extends CI_Controller
 		$this->load->model('UserModel');
 		$this->load->model('DistrictModel');
 		$this->load->model('SectorModel');
+		$this->load->helper('url');
 	}
 	function index()
 	{
 		$data['districts'] = $this->DistrictModel->selectAll();
 		$data['sectors'] = $this->SectorModel->selectAll();
 		$this->load->view('registerUser', $data);
+	}
+
+	function getCorrSectors()
+	{
+		// POST data
+		$distr_Id = $_GET['distr_id']; 
+
+		// get data
+		$data = $this->SectorModel->getSpecificSectors($distr_Id);
+
+		echo $data;
+	}
+
+	function getCorrDistricts()
+	{
+		// POST data
+		$distr_Id = $_GET['distr_id']; 
+
+		// get data
+		$data = $this->DistrictModel->getSpecificDistricts($distr_Id);
+
+		echo $data;
 	}
 
 	function validation()

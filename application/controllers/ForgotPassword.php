@@ -50,7 +50,7 @@ class ForgotPassword extends CI_Controller
 					$this->session->set_flashdata('email', $err);
 				}
 				$this->UserModel->updateVCodeWhere($reset_email, $vcode);
-				redirect('/providecode');
+				redirect(base_url() . '/providecode');
 			}
 		} else {
 			$this->index();

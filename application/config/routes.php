@@ -29,3 +29,5 @@ $route['places/new/validation'] = 'RegisterPlace/validation';
 $route['place'] = 'DisplayPlace/place';
 
 $route['event'] = 'DisplayEvent/event';
+$route['getCorrSectors'] = 'RegisterUser/getCorrSectors';
+$route['getCorrDistricts'] = 'RegisterUser/getCorrDistricts';

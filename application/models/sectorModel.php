@@ -6,4 +6,14 @@ class SectorModel extends CI_Model
 		$sectors = $this->db->get('sectors')->result_array();
 		return $sectors;
 	}
+
+	function getSpecificSectors($districtId) {
+		$this->db->where('districtId', $districtId);
+		$matching_sectors = $this->db->get('sectors')->result_array();
+		$whole_result = "";
+		foreach($matching_sectors as $sector) {
+			$whole_result .= "<option value=\"".$sector['sectorId']."\">".$sector['sectorName']."</option>";
+		}
+		return $whole_result;
+	}
 }

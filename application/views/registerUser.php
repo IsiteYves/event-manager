@@ -53,8 +53,8 @@
 					<select class="form-control" id="district" name="district" required>
 						<option value="">Choose district</option>
 						<?php
-						foreach($districts as $district) {
-							echo "<option value=".$district['districtId'].">".$district['districtName']."</option>";
+						foreach ($districts as $district) {
+							echo "<option value=" . $district['districtId'] . ">" . $district['districtName'] . "</option>";
 						}
 						?>
 					</select>
@@ -62,14 +62,7 @@
 				</div>
 				<div class="form-group">
 					<label for="sector">Sector</label>
-					<select class="form-control" id="sector" name="sector" required>
-						<option value="">Choose sector</option>
-						<?php
-						foreach($sectors as $sector) {
-							echo "<option value=".$sector['districtId'].">".$sector['districtName']."</option>";
-						}
-						?>
-					</select>
+					<select class="form-control" id="sector" name="sector" required></select>
 					<span class="text-danger"><?php echo form_error('user_role') ?></span>
 				</div>
 				<div class="form-group">
@@ -90,7 +83,61 @@
 			<!--for centered text-->
 		</div>
 	</div>
+	<script>
+		let distrSelect = document.getElementById('district');
+		let sectorsSelect = document.getElementById('sector');
+		distrSelect.onchange = function() {
+			sectorsSelect.innerHTML = '';
+			let currentValue = this.value,
+				xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					sectorsSelect.innerHTML = this.responseText;
+				}
+			}
+			xmlhttp.open('GET', '<?= base_url() ?>getCorrSectors?distr_id=' + currentValue, true);
+			xmlhttp.send();
+		}
 
+		// sectorsSelect.onchange = function() {
+		// 	distrSelect.innerHTML = '';
+		// 	let currentValue = this.value,
+		// 		xmlhttp = new XMLHttpRequest();
+		// 	xmlhttp.onreadystatechange = function() {
+		// 		if (this.readyState == 4 && this.status == 200) {
+		// 			distrSelect.innerHTML = this.responseText;
+		// 		}
+		// 	}
+		// 	xmlhttp.open('GET', '<?= base_url() ?>getCorrDistricts?sectors_id=' + currentValue, true);
+		// 	xmlhttp.send();
+		// }
+	</script>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type='text/javascript'>
+		$(document).ready(function() {
+
+			$('#district').change(function() {
+				alert($("#district").val());
+				$('#sectors').empty();
+				let districtId = $(this).val();
+				$.ajax({
+					url: '<?= base_url() ?>getCorrProvinces',
+					method: 'post',
+					data: {
+						districtId: districtId
+					},
+					dataType: 'json',
+					success: function(response) {
+						var len = response.length;
+						$.each(response, (index, sector) => {
+							$('#sectors').append("<option value=\""+sector.sectorId+"\">"+sector.sectorName+"</option>");
+						});
+						$("#sectors").html("<option>Helloooooo..........</option>");
+					}
+				});
+			});
+		});
+	</script> -->
 </body>
 
 </html>
