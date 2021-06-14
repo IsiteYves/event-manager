@@ -6,7 +6,7 @@ class ProvideCode extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model');
+		$this->load->model('UserModel');
 		$this->load->library('form_validation');
 	}
 
@@ -19,7 +19,7 @@ class ProvideCode extends CI_Controller
 	{
 		$this->form_validation->set_rules('prov_code', 'Reset-Code', 'required|trim');
 		$reset_email = $this->input->post('email');
-		$v_code = $this->User_model->selectVCodeWhere($reset_email);
+		$v_code = $this->UserModel->selectVCodeWhere($reset_email);
 		$prov_code = $this->input->post('prov_code');
 		$this->session->set_flashdata('email', $reset_email);
 		if ($this->form_validation->run()) {
