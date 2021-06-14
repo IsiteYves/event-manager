@@ -24,3 +24,5 @@ $route['profile'] = 'DisplayUsers/userProfile';
 $route['update/validation'] = "UpdateUser/validation";
 
 
+$route['event'] = 'DisplayEvent/event';
+
