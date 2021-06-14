@@ -23,6 +23,10 @@ $route['users'] = 'DisplayUsers';
 $route['profile'] = 'DisplayUsers/userProfile';
 $route['update/validation'] = "UpdateUser/validation";
 
+$route['places'] = 'DisplayPlace';
+$route['places/new'] = 'RegisterPlace';
+$route['places/new/validation'] = 'RegisterPlace/validation';
+
 
 $route['event'] = 'DisplayEvent/event';
 
