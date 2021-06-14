@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </ul>
             </nav>
             <div class="profile-info">
-                <img src="../event_images_uploads/5e98b4cc92619ada2fb8c524ad40f1f4.jpg" alt="Profile picture" class="profilePic">
+                <img src="../event_images_uploads/<?php echo $user_info[0]['profilePicture']?>" alt="Profile picture" class="profilePic">
                 <h2 class="profile-name"><?php echo $user_info[0]['user_name']?></h2>
                 <label for="check"><i class="fas fa-user-cog"></i></label>
                 <input type="checkbox" id="check">
@@ -53,6 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </thead>
         <tbody>
             <?php
+                $role = $user_info[0]['roleId'];
                 foreach($data as $user_data){
                     $userId = $user_data['userId'];
                     $firstName = $user_data['first_name'];
@@ -68,9 +69,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <td>$email</td>
                             <td>$username</td>
                             <td>$events events</td>
-                            <td><a href='".base_url()."users/delete/$userId' class='btn btn-danger'>Delete</a></td>
-                        </tr>
                     ";
+                        if($role == 1){
+                            echo "<td><a href='".base_url()."users/delete/$userId' class='btn btn-danger'>Delete</a></td>";
+                        }
+                    echo "</tr>";
                 }
             ?>
         </tbody>
