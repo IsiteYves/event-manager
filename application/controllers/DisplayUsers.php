@@ -6,6 +6,7 @@ class DisplayUsers extends CI_Controller{
         $this->load->model('UserModel');
         $this->load->library('fpdf/fpdf');
         $this->load->library('pagination');
+		$this->load->model('RolesModel');
         if(!$this->session->userdata('userId')){
             redirect(base_url().'login');
         }
@@ -58,6 +59,10 @@ class DisplayUsers extends CI_Controller{
 
         $data['data'] = $this->UserModel->fetchAllUsers($limit,$start);
         $data['links'] = $this->pagination->create_links();
+        $roleId = $this->session->userdata('roleId');
+		$role = $this->RolesModel->selectRole((int)$roleId);
+		$data['role_info'] = [$roleId, $role];
+		$this->session->set_userdata('role', $role);
         
         $data['user_info'] = $this->UserModel->select($this->session->userdata('userId'));
         $this->load->view('users-page/displayUsers',$data);
