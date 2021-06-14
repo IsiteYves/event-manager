@@ -40,7 +40,7 @@ class RegisterPlace extends CI_Controller {
                 ); 
                 $id = $this->PlaceModel->insert($data);
                 if($id > 0){
-                    redirect(''.base_url());
+                    redirect(base_url().'places');
                 }       
             }
             else{

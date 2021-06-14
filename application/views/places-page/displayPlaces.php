@@ -58,7 +58,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <div class="card-body">
                                 <h6 class="card-title">'.$place_name.'</h6>
                                 <small class="card-text ellipsis-content">'.$place_description.'</small>
-                                <p class="card-title">'.$place_location.'</p>
                                 <div class="read-more-option">
                                     <a href='.base_url() ."place?id=".$place_id.' class="btn btn-success read-more col-sm-11">Read More</a>                           
                                     <label for="check-post"><i class="fas fa-ellipsis-v"></i></label>
@@ -69,6 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 </div>
                                 <div class="row">
                                 </div>
+                                <p class="card-text duration text-secondary col-sm-12">'.$place_location.'</p>
                                 <p class="card-text creator text-secondary col-sm-12">Shared By '.$creator.'</p>
                             </div>
                         </div>
