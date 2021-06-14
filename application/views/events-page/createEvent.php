@@ -21,8 +21,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="navbar-main-content">
             <nav>
                 <ul>
-                    <li><a href="" class="active">Events</a></li>
-                    <li><a href="#">Places</a></li>
+                    <li><a href="<?php echo base_url();?>" class="active">Events</a></li>
+                    <li><a href="<?php echo base_url();?>places">Places</a></li>
                     <li><a href="<?php echo base_url();?>users">Users</a></li>
                 </ul>
             </nav>
