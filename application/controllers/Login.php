@@ -28,13 +28,14 @@ class Login extends CI_Controller {
       $pass=hash("SHA256",$password);
       
         $row=$this->UserModel->login($username,$pass);
-        if($row== false){
+        if($row == false){
             $this->session->set_flashdata('error_msg', 'The username or password is incorrect.');
             $this->load->view('login');  
         }
         else{
             foreach($row as $user_array){
               $this->session->set_userdata('userId',$user_array['userId']);
+							$this->session->set_userdata('roleId', $user_array['roleId']);
               redirect(''.base_url());
             }
           }
@@ -46,4 +47,3 @@ class Login extends CI_Controller {
   }
 
 }
-?>

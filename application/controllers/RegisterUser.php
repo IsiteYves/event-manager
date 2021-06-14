@@ -6,10 +6,14 @@ class RegisterUser extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('UserModel');
+		$this->load->model('DistrictModel');
+		$this->load->model('SectorModel');
 	}
 	function index()
 	{
-		$this->load->view('registerUser');
+		$data['districts'] = $this->DistrictModel->selectAll();
+		$data['sectors'] = $this->SectorModel->selectAll();
+		$this->load->view('registerUser', $data);
 	}
 
 	function validation()
