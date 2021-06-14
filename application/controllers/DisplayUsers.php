@@ -71,6 +71,13 @@ class DisplayUsers extends CI_Controller{
     function pdfExport(){
         $pdf = new FPDF();
         $pdf->AddPage();
+        $pdf->SetFont('Arial','B',18);
+        $pdf->Cell(190,10,'EVENT MANAGER');
+        $pdf->Ln();
+        $pdf->Ln();
+        $pdf->SetFont('Arial','B',15);
+        $pdf->Cell(190,10,'Users Report');
+        $pdf->Ln();
         $pdf->SetFont('Arial','B',12);
         $pdf->Cell(15,10,'UserId',1,0);
         $pdf->Cell(25,10,'Firstname',1,0);
