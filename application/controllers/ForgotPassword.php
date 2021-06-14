@@ -8,7 +8,7 @@ class ForgotPassword extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->library('email');
-		$this->load->model('User_model');
+		$this->load->model('UserModel');
 	}
 
 	function index()
@@ -22,7 +22,7 @@ class ForgotPassword extends CI_Controller
 		$reset_email = $this->input->post('reset_email');
 		$vcode = bin2hex(random_bytes(6));
 		if ($this->form_validation->run()) {
-			$res = $this->User_model->selectWhere($reset_email);
+			$res = $this->UserModel->selectWhere($reset_email);
 			if ($res === 'found') {
 				$subject = "Password Reset Code";
 				$message = "<p>Here is your password reset code</p><h3>$vcode</h3>";
@@ -49,7 +49,7 @@ class ForgotPassword extends CI_Controller
 					$err = $this->email->print_debugger();
 					$this->session->set_flashdata('email', $err);
 				}
-				$this->User_model->updateVCodeWhere($reset_email, $vcode);
+				$this->UserModel->updateVCodeWhere($reset_email, $vcode);
 				redirect('/providecode');
 			}
 		} else {
