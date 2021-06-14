@@ -6,7 +6,7 @@ class ResetPassword extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('User_model');
+		$this->load->model('UserModel');
 		$this->load->library('form_validation');
 	}
 
@@ -30,10 +30,10 @@ class ResetPassword extends CI_Controller
 				redirect('resetpassword');
 			} else {
 				$new_password = hash("SHA256", $new_password);
-				$this->User_model->updatePasswordWhere($email, $new_password);
+				$this->UserModel->updatePasswordWhere($email, $new_password);
 				redirect('/login');
 			}
-		}else{
+		} else {
 			$this->index();
 		}
 	}
