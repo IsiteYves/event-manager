@@ -23,10 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <ul>
                     <li><a href="" class="active">Events</a></li>
                     <li><a href="#">Places</a></li>
+                    <li><a href="<?php echo base_url();?>users">Users</a></li>
                 </ul>
             </nav>
             <div class="profile-info">
-                <img src="../event_images_uploads/5e98b4cc92619ada2fb8c524ad40f1f4.jpg" alt="Profile picture" class="profilePic">
+                <img src="../event_images_uploads/<?php echo $user_info[0]['profilePicture']?>"  alt="Profile picture" class="profilePic">
                 <h2 class="profile-name"><?php echo $user_info[0]['user_name']?></h2>
                 <label for="check"><i class="fas fa-user-cog"></i></label>
                 <input type="checkbox" id="check">

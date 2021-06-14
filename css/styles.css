@@ -339,3 +339,14 @@ label[for='check-post']{
 	text-align: left;
 	white-space: nowrap;
 }
+
+.table-container {
+	width: 90%;
+	margin-left:5%;
+	margin-top: 8% !important;
+}
+.pdf-export-btn{
+	margin-top: 5%;
+	margin-right: 5%;
+	float:right !important;
+}
