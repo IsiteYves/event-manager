@@ -1,9 +1,9 @@
 <?php
-class DistrictModel extends CI_Model
+class SectorModel extends CI_Model
 {
 	function selectAll()
 	{
-		$districts = $this->db->get('districts')->result_array();
-		return $districts;
+		$sectors = $this->db->get('sectors')->result_array();
+		return $sectors;
 	}
 }
