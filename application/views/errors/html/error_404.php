@@ -52,6 +52,7 @@ p {
 		<h1 class="app-title">EVENT MANAGER</h1>
 		<h1><?php echo $heading; ?></h1>
 		<?php echo $message; ?>
+		<a href="javascript:history.go(-1)" title="Return to previous page">&laquo;Go back</a>
 	</div>
 </body>
 </html>
