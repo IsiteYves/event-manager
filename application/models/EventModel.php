@@ -22,6 +22,16 @@ class EventModel extends CI_Model
 		}
 	}
 
+	function selectOneEvent($id){
+		$this->db->where('event_id',$id);
+		$query = $this->db->get('events')->result_array();
+		if (count($query) > 0) {
+			return $query;
+		} else {
+			return 'Unable to find the event';
+		}
+	}
+
 	function selectWhere($email)
 	{
 		$found = true;

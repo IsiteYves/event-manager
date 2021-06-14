@@ -27,4 +27,10 @@ class DisplayEvent extends CI_Controller {
         session_destroy();
         redirect(base_url()."login");
     }
+
+    function event(){
+        $id = $this->input->get('id');
+        $data['data'] = $this->EventModel->selectOneEvent($id);
+        $this->load->view('events-page/view_event',$data);
+    }
 }

@@ -20,3 +20,5 @@ $route['users/pdfExport'] = 'DisplayUsers/pdfExport';
 $route['users/(:any)']  = 'DisplayUsers/index/1';
 $route['users'] = 'DisplayUsers';
 
+$route['event'] = 'DisplayEvent/event';
+
