@@ -39,4 +39,24 @@ class EventModel extends CI_Model
 		else : return "notfound";
 		endif;
 	}
+
+	function inviteToEvent($event,$user){
+		$this->db->where('event_id',$event);
+		$query = $this->db->get('events');
+		if($query->num_rows() == 0){
+            return 'Unable to find the event';
+		}
+		else{
+			$data = array(
+				'event_id'=>$event,
+				'user_id'=>$user
+			);
+			if($this->db->insert('event_members',$data)){
+				return 'Member added successfully';
+			}
+			else{
+				return 'Member failed to be added';
+			}
+		}
+	}
 }

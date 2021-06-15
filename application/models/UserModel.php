@@ -118,4 +118,13 @@ class UserModel extends CI_Model
 		$this->db->where('email', $email);
 		$this->db->update('users');
 	}
+
+	function searchUser($username){
+		$this->db->select("*");
+		$this->db->from("users");
+		if($username != ''){
+		 	$this->db->like('username', $username);
+		}
+		return $this->db->get();
+	}
 }
