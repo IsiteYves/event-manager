@@ -1,6 +1,15 @@
 <?php
 class UserModel extends CI_Model
 {
+	function selectAll($q)
+	{
+		// $this->db->like('user_name', $q, 'before');
+		$q = $this->db->get('users');
+		if ($q) {
+			return $q->result_array();
+		}
+	}
+
 	function insert($data)
 	{
 		$this->db->insert('users', $data);
@@ -119,11 +128,12 @@ class UserModel extends CI_Model
 		$this->db->update('users');
 	}
 
-	function searchUser($username){
+	function searchUser($username)
+	{
 		$this->db->select("*");
 		$this->db->from("users");
-		if($username != ''){
-		 	$this->db->like('username', $username);
+		if ($username != '') {
+			$this->db->like('username', $username);
 		}
 		return $this->db->get();
 	}
