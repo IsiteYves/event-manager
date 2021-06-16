@@ -441,3 +441,7 @@ a.back:hover{
 .users>* {
 	cursor: pointer;
 }
+
+.place-image{
+	object-fit: cover !important;
+}

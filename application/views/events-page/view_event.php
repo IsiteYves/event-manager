@@ -46,18 +46,20 @@
 	<script>
 		let field = document.getElementById('username');
 		let users = document.getElementsByClassName('users')[0];
-		field.onchange = function() {
+		field.oninput = function() {
 			users.innerHTML = '';
 			let q = this.value,
 				xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					users.innerHTML = this.responseText;
+					console.log(this.responseText);
 				}
 			}
 			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
 			xmlhttp.send();
 		}
+		
 	</script>
 </body>
 

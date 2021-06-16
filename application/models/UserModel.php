@@ -3,11 +3,17 @@ class UserModel extends CI_Model
 {
 	function selectAll($q)
 	{
-		// $this->db->like('user_name', $q, 'before');
-		$q = $this->db->get('users');
-		if ($q) {
-			return $q->result_array();
+		if($q != ''){
+			$this->db->like('user_name', $q);
+			$query = $this->db->get('users');
+			if ($query->num_rows() > 0) {
+				return $query->result_array();
+			}
+			else{
+				return 'Unable to find the user';
+			}
 		}
+		
 	}
 
 	function insert($data)
@@ -126,15 +132,5 @@ class UserModel extends CI_Model
 		$this->db->set('password', $new_password);
 		$this->db->where('email', $email);
 		$this->db->update('users');
-	}
-
-	function searchUser($username)
-	{
-		$this->db->select("*");
-		$this->db->from("users");
-		if ($username != '') {
-			$this->db->like('username', $username);
-		}
-		return $this->db->get();
 	}
 }
