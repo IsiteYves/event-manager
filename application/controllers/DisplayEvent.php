@@ -43,4 +43,16 @@ class DisplayEvent extends CI_Controller
 		$data['data'] = $this->EventModel->selectOneEvent($id);
 		$this->load->view('events-page/view_event', $data);
 	}
+
+	function searchUsers() {
+		$q = $_GET['q'];
+		$arr = $this->UserModel->selectAll($q);
+		$whole_as_str = "";
+		for($i=0;$i<count($arr);$i++) {
+			if($arr[$i]['userId'] !== $this->session->userdata('userId')) {
+				$whole_as_str .= "<a class='list-group-item list-group-item-action' data-u-i='".$arr[$i]['userId']."'>".$arr[$i]['user_name']."</a>";
+			}
+		}
+		echo $whole_as_str;
+	}
 }

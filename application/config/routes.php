@@ -31,3 +31,4 @@ $route['place'] = 'DisplayPlace/place';
 $route['event'] = 'DisplayEvent/event';
 $route['getCorrSectors'] = 'RegisterUser/getCorrSectors';
 $route['getCorrDistricts'] = 'RegisterUser/getCorrDistricts';
+$route['getUsers'] = 'DisplayEvent/searchUsers';

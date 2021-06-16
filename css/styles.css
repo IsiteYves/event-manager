@@ -14,6 +14,14 @@ body {
 	text-overflow: ellipsis;
 }
 
+.invite {
+	background-color: #0B60DB;
+	margin-left: 2rem;
+	font-weight: 700 !important;
+	border: none !important;
+	outline: none !important;
+}
+
 .card {
 	height: 320px;
 	padding-bottom: 0 !important;
@@ -377,8 +385,9 @@ h1{
 }
 .title{
     background-color: #fff;
-	padding: 0.5rem 3rem 0.5rem 1rem;
-    width: fit-content;
+	padding: 0 3rem 0.5rem 1rem !important;
+    width: fit-content !important;
+	width: fit-content !important;
 	white-space: nowrap;
     margin: -1rem auto 1rem auto;
     border-radius: 5px;
@@ -404,6 +413,7 @@ h4{
 span{
     text-transform: capitalize;
     color: green;
+	font-weight: bold;
     text-decoration: underline;
     font-size: large;
 }
@@ -422,4 +432,12 @@ a.back{
 }
 a.back:hover{
     background-color: #00C7A7;
+}
+
+#myModal {
+	margin-top: 10rem;
+}
+
+.users>* {
+	cursor: pointer;
 }

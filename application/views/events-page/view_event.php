@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="<?php echo base_url();?>css/styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url();?>css/styles.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title><?= $data[0]['event_name'] ?> Event</title>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
 </head>
+
 <body>
-    <a href="<?php echo base_url();?>" class="back"><i class="fas fa-angle-double-left"></i> Go back</a>
-    <img src="<?php  echo base_url()?>event_images_uploads/<?php echo $data[0]['event_image']?>">
-    <div class="title">
-        <h1><?php echo $data[0]['event_name']?></h1>
-    </div>
-    <p><?php echo $data[0]['event_description']?></p>
-    <h4><span>date: </span><?php echo $data[0]['event_duration']?></h4>
+	<a href="<?php echo base_url(); ?>" class="back"><i class="fas fa-angle-double-left"></i> Go back</a>
+	<img src="<?php echo base_url() ?>event_images_uploads/<?php echo $data[0]['event_image'] ?>">
+	<div class="title">
+		<h1><?php echo $data[0]['event_name'] ?></h1>
+	</div>
+	<p><?php echo $data[0]['event_description'] ?></p>
+	<h4><span>date:</span> <?php echo $data[0]['event_duration'] ?></h4>
+	<button type="button" class="btn btn-primary btn-lg invite" data-toggle="modal" data-target="#myModal">Invite</button>
+
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-md">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Invite people</h4>
+				</div>
+				<div class="modal-body">
+					<form action="#" method="post" enctype="multipart/form-data">
+						<input type="search" class="form-control" name="username" id="username" placeholder="Search users..." autocomplete="off" />
+					</form>
+					<div class="list-group users"></div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		let field = document.getElementById('username');
+		let users = document.getElementsByClassName('users')[0];
+		field.onchange = function() {
+			users.innerHTML = '';
+			let q = this.value,
+				xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					users.innerHTML = this.responseText;
+				}
+			}
+			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
+			xmlhttp.send();
+		}
+	</script>
 </body>
+
 </html>
