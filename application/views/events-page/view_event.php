@@ -9,6 +9,9 @@
 	<link rel="shortcut icon" href="../../../images/logo.ico" type="image/x-icon">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://kit.fontawesome.com/1681f60826.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
 </head>
@@ -22,7 +25,7 @@
 	<p><?php echo $data[0]['event_description'] ?></p>
 	<h4><span>date:</span> <?php echo $data[0]['event_duration'] ?></h4>
 	<?php
-	if ($this->session->userdata('userId') == $_REQUEST['c_id']) {
+	if ($this->session->userdata('userId') == $_REQUEST['q']) {
 		echo '<button type="button" class="btn btn-primary btn-lg invite" data-toggle="modal" data-target="#myModal">Invite</button>';
 	}
 	?>
@@ -57,7 +60,6 @@
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					users.innerHTML = this.responseText;
-					console.log(this.responseText);
 				}
 			}
 			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
