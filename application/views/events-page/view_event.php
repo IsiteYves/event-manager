@@ -60,8 +60,6 @@
 			xmlhttp.send();
 		}
 
-<<<<<<< HEAD
-=======
 		function invite(e, q) {
 			let xmlhttp = new XMLHttpRequest();
 			xmlhttp.onreadystatechange = function() {
@@ -73,7 +71,6 @@
 			xmlhttp.send();
 			alert(`${e.innerHTML} was successfully invited to the ` + "<?= $data[0]['event_name'] ?> event.");
 		}
->>>>>>> 419062fce4d5ae12fef46e491ad9a36818662a47
 	</script>
 </body>
 
