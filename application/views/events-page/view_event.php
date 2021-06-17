@@ -9,6 +9,9 @@
 	<link rel="shortcut icon" href="../../../images/logo.ico" type="image/x-icon">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<script src="https://kit.fontawesome.com/1681f60826.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
 </head>
@@ -21,7 +24,11 @@
 	</div>
 	<p><?php echo $data[0]['event_description'] ?></p>
 	<h4><span>date:</span> <?php echo $data[0]['event_duration'] ?></h4>
-	<button type="button" class="btn btn-success btn-lg invite" data-toggle="modal" data-target="#myModal">Invite A User</button>
+	<?php
+	if ($this->session->userdata('userId') == $_REQUEST['q']) {
+		echo '<button type="button" class="btn btn-primary btn-lg invite" data-toggle="modal" data-target="#myModal">Invite</button>';
+	}
+	?>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
@@ -43,7 +50,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="table-container table-responsive">
+	<?php
+	if ($this->session->userdata('userId') == $_REQUEST['q']) {
+        echo '<div class="table-container table-responsive">
 		<table class="table table-bordered table-hover table-striped">
 			<thead class="table-dark">
 				<tr>
@@ -54,12 +63,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php
-				foreach ($data as $user_data) {
-					$firstName = $user_data['first_name'];
-					$lastName = $user_data['last_name'];
-					$email = $user_data['email'];
-					$username = $user_data['user_name'];
+        ';
+			foreach ($data as $user_data) {
+				$firstName = $user_data['first_name'];
+				$lastName = $user_data['last_name'];
+				$email = $user_data['email'];
+				$username = $user_data['user_name'];
 					echo "
                         <tr>
                             <td>$firstName</td>
@@ -73,7 +82,10 @@
 			</tbody>
 		</table>
 	</div>
-	<script>
+'
+	}
+	?>
+		<script>
 		let field = document.getElementById('username');
 		let users = document.getElementsByClassName('users')[0];
 		field.onkeyup = function() {
@@ -83,7 +95,6 @@
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					users.innerHTML = this.responseText;
-					console.log(this.responseText);
 				}
 			}
 			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
