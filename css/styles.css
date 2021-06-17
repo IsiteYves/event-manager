@@ -441,7 +441,7 @@ a.back:hover{
 	margin-top: 10rem;
 }
 
-.users>* {
+.list-group-item {
 	cursor: pointer;
 }
 
