@@ -9,12 +9,12 @@ class EventModel extends CI_Model
 
 	function select()
 	{
-		$this->db->select('event_id, event_name, event_description, event_duration, event_image, user_name');
+		$this->db->select('event_id, event_name, event_description, event_duration, event_image, user_name, created_by');
 		$this->db->from('events');
-        $this->db->join('users', 'users.userId = events.created_by');
+		$this->db->join('users', 'users.userId = events.created_by');
 
 		$query = $this->db->get()->result_array();
-		
+
 		if (count($query) > 0) {
 			return $query;
 		} else {
@@ -22,8 +22,9 @@ class EventModel extends CI_Model
 		}
 	}
 
-	function selectOneEvent($id){
-		$this->db->where('event_id',$id);
+	function selectOneEvent($id)
+	{
+		$this->db->where('event_id', $id);
 		$query = $this->db->get('events')->result_array();
 		if (count($query) > 0) {
 			return $query;
@@ -40,21 +41,20 @@ class EventModel extends CI_Model
 		endif;
 	}
 
-	function inviteToEvent($event,$user){
-		$this->db->where('event_id',$event);
+	function inviteToEvent($event, $user)
+	{
+		$this->db->where('event_id', $event);
 		$query = $this->db->get('events');
-		if($query->num_rows() == 0){
-            return 'Unable to find the event';
-		}
-		else{
+		if ($query->num_rows() == 0) {
+			return 'Unable to find the event';
+		} else {
 			$data = array(
-				'event_id'=>$event,
-				'user_id'=>$user
+				'event_id' => $event,
+				'user_id' => $user
 			);
-			if($this->db->insert('event_members',$data)){
+			if ($this->db->insert('event_members', $data)) {
 				return 'Member added successfully';
-			}
-			else{
+			} else {
 				return 'Member failed to be added';
 			}
 		}

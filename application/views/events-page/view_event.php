@@ -21,7 +21,11 @@
 	</div>
 	<p><?php echo $data[0]['event_description'] ?></p>
 	<h4><span>date:</span> <?php echo $data[0]['event_duration'] ?></h4>
-	<button type="button" class="btn btn-primary btn-lg invite" data-toggle="modal" data-target="#myModal">Invite</button>
+	<?php
+	if ($this->session->userdata('userId') == $_REQUEST['c_id']) {
+		echo '<button type="button" class="btn btn-primary btn-lg invite" data-toggle="modal" data-target="#myModal">Invite</button>';
+	}
+	?>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
