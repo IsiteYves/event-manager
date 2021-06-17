@@ -21,7 +21,7 @@
 	</div>
 	<p><?php echo $data[0]['event_description'] ?></p>
 	<h4><span>date:</span> <?php echo $data[0]['event_duration'] ?></h4>
-	<button type="button" class="btn btn-primary btn-lg invite" data-toggle="modal" data-target="#myModal">Invite</button>
+	<button type="button" class="btn btn-success btn-lg invite" data-toggle="modal" data-target="#myModal">Invite A User</button>
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" role="dialog">
@@ -59,7 +59,7 @@
 			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
 			xmlhttp.send();
 		}
-		
+
 	</script>
 </body>
 

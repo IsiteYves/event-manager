@@ -15,11 +15,14 @@ body {
 }
 
 .invite {
-	background-color: #0B60DB;
+	background-color: rgb(2, 109, 2);
 	margin-left: 2rem;
 	font-weight: 700 !important;
 	border: none !important;
 	outline: none !important;
+}
+.invite:hover{
+	background-color: rgb(2, 92, 2);
 }
 
 .card {
