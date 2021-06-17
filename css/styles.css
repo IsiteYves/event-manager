@@ -448,3 +448,6 @@ a.back:hover{
 .place-image{
 	object-fit: cover !important;
 }
+.table-container{
+	margin-top:2% !important;
+}
