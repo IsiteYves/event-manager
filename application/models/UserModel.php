@@ -3,7 +3,7 @@ class UserModel extends CI_Model
 {
 	function selectAll($q)
 	{
-		// $this->db->like('user_name', $q, 'before');
+		$this->db->like('user_name', $q);
 		$q = $this->db->get('users');
 		if ($q) {
 			return $q->result_array();
