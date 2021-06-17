@@ -9,6 +9,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Display events</title>
+	<link rel="shortcut icon" href="../../images/logo.ico" type="image/x-icon">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<script src="https://kit.fontawesome.com/1681f60826.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="<?php echo base_url(); ?>css/styles.css">
@@ -55,7 +56,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			$event_description = $value_data['event_description'];
 			$event_duration = $value_data['event_duration'];
 			$event_image = "../event_images_uploads/" . $value_data['event_image'];
-			$creator_id = $value_data['creator_id'];
+			$creator_id = $value_data['created_by'];
 			$creator = $value_data['user_name'];
 			echo '
                         <div class="card mt-2 mb-1 col-sm-1" style="width: 16rem;">
@@ -64,7 +65,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 <h5 class="card-title">' . $event_name . '</h5>
                                 <p class="card-text ellipsis-content">' . $event_description . '</p>
                                 <div class="read-more-option">
-                                    <a href=' . base_url() . "event?id=" . $event_id ."&q=". $creator_i d .' class="btn btn-success read-more col-sm-11">Read More</a>                           
+                                    <a href=' . base_url() . "event?id=" . $event_id . "&q=" . $creator_id . ' class="btn btn-success read-more col-sm-11">Read More</a>                           
                                     <label for="check-post"><i class="fas fa-ellipsis-v"></i></label>
                                     <input type="checkbox" id="check-post">
                                     <div class="post-option">

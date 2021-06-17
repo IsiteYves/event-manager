@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url();?>css/styles.css">
     <title>Profile</title>
+    <link rel="shortcut icon" href="../../../images/logo.ico" type="image/x-icon">
 </head>
 <body>
 <h1 class="app-title">EVENT MANAGER</h1>
