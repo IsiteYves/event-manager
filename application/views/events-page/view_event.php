@@ -46,7 +46,7 @@
 	<script>
 		let field = document.getElementById('username');
 		let users = document.getElementsByClassName('users')[0];
-		field.oninput = function() {
+		field.onkeyup = function() {
 			users.innerHTML = '';
 			let q = this.value,
 				xmlhttp = new XMLHttpRequest();
@@ -59,7 +59,18 @@
 			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
 			xmlhttp.send();
 		}
-		
+
+		function invite(e, q) {
+			let xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					users.innerHTML = this.responseText;
+				}
+			}
+			xmlhttp.open('GET', '<?= base_url() ?>inviteUser?user_id=' + q + '&event_id=<?= $_REQUEST['id'] ?>', true);
+			xmlhttp.send();
+			alert(`${e.innerHTML} was successfully invited to the ` + "<?= $data[0]['event_name'] ?> event.");
+		}
 	</script>
 </body>
 

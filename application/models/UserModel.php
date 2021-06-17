@@ -3,17 +3,15 @@ class UserModel extends CI_Model
 {
 	function selectAll($q)
 	{
-		if($q != ''){
+		if ($q != '') {
 			$this->db->like('user_name', $q);
 			$query = $this->db->get('users');
 			if ($query->num_rows() > 0) {
 				return $query->result_array();
-			}
-			else{
+			} else {
 				return 'Unable to find the user';
 			}
 		}
-		
 	}
 
 	function insert($data)
