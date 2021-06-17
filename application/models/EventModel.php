@@ -7,6 +7,19 @@ class EventModel extends CI_Model
 		return $this->db->insert_id();
 	}
 
+	function selectAllInvitedUsers($eventId)
+	{
+		$this->db->select("*");
+		$this->db->from("event_members");
+		$this->db->where('event_id', $eventId);
+		$this->db->join("users", 'users.userId = event_members.user_id');
+
+		$query = $this->db->get();
+		if ($query->num_rows() > 0) {
+			return $query->result_array();
+		}
+	}
+
 	function select()
 	{
 		$this->db->select('event_id, event_name, event_description, event_duration, event_image, user_name, created_by');

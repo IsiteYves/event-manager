@@ -41,6 +41,7 @@ class DisplayEvent extends CI_Controller
 	{
 		$id = $this->input->get('id');
 		$data['data'] = $this->EventModel->selectOneEvent($id);
+		$data['eventMembers'] = $this->EventModel->selectAllInvitedUsers($id);
 		$this->load->view('events-page/view_event', $data);
 	}
 

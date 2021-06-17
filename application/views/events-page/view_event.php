@@ -52,7 +52,7 @@
 	</div>
 	<?php
 	if ($this->session->userdata('userId') == $_REQUEST['q']) {
-        echo '<div class="table-container table-responsive">
+		echo '<div class="table-container table-responsive">
 		<table class="table table-bordered table-hover table-striped">
 			<thead class="table-dark">
 				<tr>
@@ -64,7 +64,7 @@
 			</thead>
 			<tbody>
         ';
-		foreach ($data as $user_data) {
+		foreach ($eventMembers as $user_data) {
 			$firstName = $user_data['first_name'];
 			$lastName = $user_data['last_name'];
 			$email = $user_data['email'];
@@ -75,17 +75,17 @@
                         <td>$lastName</td>
                         <td>$email</td>
                         <td>$username</td>
-                    ";					
-					echo "</tr>";
+                    ";
+			echo "</tr>";
 		}
-		echo'
+		echo '
 			</tbody>
 		</table>
 	</div>
     ';
 	}
 	?>
-		<script>
+	<script>
 		let field = document.getElementById('username');
 		let users = document.getElementsByClassName('users')[0];
 		field.onkeyup = function() {
