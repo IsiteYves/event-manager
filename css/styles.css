@@ -441,3 +441,7 @@ a.back:hover{
 .list-group-item {
 	cursor: pointer;
 }
+
+.place-image{
+	object-fit: cover !important;
+}

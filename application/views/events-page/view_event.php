@@ -53,6 +53,7 @@
 			xmlhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					users.innerHTML = this.responseText;
+					console.log(this.responseText);
 				}
 			}
 			xmlhttp.open('GET', '<?= base_url() ?>getUsers?q=' + q, true);
