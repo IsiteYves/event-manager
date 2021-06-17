@@ -64,25 +64,25 @@
 			</thead>
 			<tbody>
         ';
-			foreach ($data as $user_data) {
-				$firstName = $user_data['first_name'];
-				$lastName = $user_data['last_name'];
-				$email = $user_data['email'];
-				$username = $user_data['user_name'];
-					echo "
-                        <tr>
-                            <td>$firstName</td>
-                            <td>$lastName</td>
-                            <td>$email</td>
-                            <td>$username</td>
+		foreach ($data as $user_data) {
+			$firstName = $user_data['first_name'];
+			$lastName = $user_data['last_name'];
+			$email = $user_data['email'];
+			$username = $user_data['user_name'];
+			echo "
+                    <tr>
+                        <td>$firstName</td>
+                        <td>$lastName</td>
+                        <td>$email</td>
+                        <td>$username</td>
                     ";					
 					echo "</tr>";
-				}
-				?>
+		}
+		echo'
 			</tbody>
 		</table>
 	</div>
-'
+    ';
 	}
 	?>
 		<script>
